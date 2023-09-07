@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "react-native/react-native": true
     },
     "extends": [
         "standard",
@@ -18,5 +19,11 @@
         "react-native"
     ],
     "rules": {
+        "react/react-in-jsx-scope": "off"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
