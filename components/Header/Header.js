@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import PropTypes from 'prop-types'
 import style from './style'
+import Colors from '../../assets/styles/Colors'
 
 const Header = props => {
   const styleToApply = () => {
@@ -18,19 +19,24 @@ const Header = props => {
   }
   return (
     <View>
-      <Text style={styleToApply(props.type)}>{props.title}</Text>
+      <Text
+        style={[styleToApply(props.type), props.color && { color: props.color }]}>
+        {props.title}
+      </Text>
     </View>
   )
 }
 
 Header.defaultProps = {
   title: '',
-  type: 1
+  type: 1,
+  color: Colors.white
 }
 
 Header.propTypes = {
   title: PropTypes.string,
-  type: PropTypes.number
+  type: PropTypes.number,
+  color: PropTypes.string
 }
 
 export default Header
