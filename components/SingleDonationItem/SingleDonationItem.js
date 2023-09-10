@@ -16,7 +16,7 @@ const SingleDonationItem = props => {
         <Image
           style={style.image}
           resizeMode={'contain'}
-          source={{ uri: props.uri, headers: { Accept: '*/*' } }}
+          source={{ uri: props.uri }}
         />
       </View>
       <View style={style.donationInformation}>

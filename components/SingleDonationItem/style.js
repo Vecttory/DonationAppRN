@@ -12,8 +12,8 @@ const style = StyleSheet.create({
     marginTop: verticalScale(16)
   },
   image: {
-    height: verticalScale(178),
-    width: horizontalScale(155)
+    height: verticalScale(140),
+    width: horizontalScale(140)
   },
   price: {
     marginTop: verticalScale(5)

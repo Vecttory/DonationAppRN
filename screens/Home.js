@@ -1,32 +1,46 @@
 import React from 'react'
-import { SafeAreaView, View } from 'react-native'
+import { Pressable, SafeAreaView, Text } from 'react-native'
 import globalStyle from '../assets/styles/globalStyle'
-import Search from '../components/Search/Search'
-import SingleDonationItem from '../components/SingleDonationItem/SingleDonationItem'
-import style from './style'
+// import Search from '../components/Search/Search'
+// import SingleDonationItem from '../components/SingleDonationItem/SingleDonationItem'
+// import style from './style'
+import Header from '../components/Header/Header'
+import { useDispatch, useSelector } from 'react-redux'
+import Colors from '../assets/styles/Colors'
+import { updateFirstName } from '../redux/reducers/User'
 
 const Home = () => {
+  const user = useSelector(state => state.user)
+  const dispatch = useDispatch()
   return (
     <SafeAreaView style={{ ...globalStyle.backgroundWhite, ...globalStyle.flex }}>
-      <Search onSearch={value => console.log(value)} />
-      <View style={style.itemsContainer}>
-        <SingleDonationItem
-          uri={
-            'https://images.unsplash.com/photo-1554631221-f9603e6808be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2FjdHVzfGVufDB8fDB8fHww&w=1000&q=80'
-          }
-          badgeTitle={'Environment'}
-          donationTitle={'Tree Cactus'}
-          price={44}
-        />
-        <SingleDonationItem
-          uri={
-            'https://images.unsplash.com/photo-1554631221-f9603e6808be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2FjdHVzfGVufDB8fDB8fHww&w=1000&q=80'
-          }
-          badgeTitle={'Environment'}
-          donationTitle={'Tree Cactus'}
-          price={44}
-        />
-      </View>
+      <Header
+        title={user.firstName + ' ' + user.lastName}
+        color={Colors.darkBlue}
+      />
+      <Pressable
+        onPress={() => dispatch(updateFirstName({ firstName: 'Boris' }))}>
+        <Text>Press me to change first name</Text>
+      </Pressable>
+      {/* <Search onSearch={value => console.log(value)} /> */}
+      {/* <View style={style.itemsContainer}> */}
+      {/*  <SingleDonationItem */}
+      {/*    uri={ */}
+      {/*        'https://i.pinimg.com/originals/a8/5b/40/a85b40ec450b21ef98cc363ec713ab99.jpg' */}
+      {/*    } */}
+      {/*    badgeTitle={'Environment'} */}
+      {/*    donationTitle={'Tree Cactus'} */}
+      {/*    price={44} */}
+      {/*  /> */}
+      {/*  <SingleDonationItem */}
+      {/*    uri={ */}
+      {/*        'https://i.pinimg.com/originals/a8/5b/40/a85b40ec450b21ef98cc363ec713ab99.jpg' */}
+      {/*    } */}
+      {/*    badgeTitle={'Environment'} */}
+      {/*    donationTitle={'Tree Cactus'} */}
+      {/*    price={44} */}
+      {/*  /> */}
+      {/* </View> */}
     </SafeAreaView>
   )
 }

@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native'
+import { horizontalScale } from '../assets/styles/scaling'
 
 const style = StyleSheet.create({
   itemsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between',
+    paddingHorizontal: horizontalScale(20)
   }
 })
 
